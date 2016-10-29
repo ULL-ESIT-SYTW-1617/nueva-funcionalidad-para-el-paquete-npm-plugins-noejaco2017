@@ -6,15 +6,15 @@ const GitUrlParse = require("git-url-parse");
 
 
 function initialize(directorio) {
-    console.log("\nmodulo initialize");
+    console.log("\nFuncion initialize");
 
-    var contenido='\ngulp.task("deploy-iaas", function () {'+
-        '\n\tvar iaas = require("gitbook-start-plugin-iaas-ull-es-noejaco2017");'+
-        '\n\tvar url = paquete.repository.url;'+
-        '\n\tvar iaas_ip = paquete.iaas.IP;'+
+    var contenido='\ngulp.task("deploy-iaas-ull", function () {'+
+        '\n\tvar iaas = require("gitbook-start-plugin-iaas-ull-es-noejaco2017");'+//Creamos una variable que contiene una
+        '\n\tvar url = paquete.repository.url;'+//funcion para añadir en el gulpfile a crear(nuestro plugin), donde tmb guardamos
+        '\n\tvar iaas_ip = paquete.iaas.IP;'+//la ip path y url
         '\n\tvar iaas_path = paquete.iaas.PATH;'+
 
-        '\n\n\tiaas.deploy(iaas_ip, iaas_path, url);'+
+        '\n\n\tiaas.deploy(iaas_ip, iaas_path, url);'+//y pasamos los valores a la funcion deploy luego de hacer el initialize
         '\n});\n\n';
 
 
@@ -22,7 +22,7 @@ function initialize(directorio) {
 
 
     //añadimos la tarea
-    fs.writeFileSync(path.join(process.cwd(), 'gitbook-start-team-noejaco2017','gulpfile.js'), contenido,  {'flag':'a'},  function(err) {
+    fs.writeFileSync(path.join(process.cwd(),'node_modules', 'gitbook-start-team-noejaco2017','gulpfile.js'), contenido,  {'flag':'a'},  function(err) {
         if (err) {
             return console.error(err);
         }
@@ -35,7 +35,7 @@ function initialize(directorio) {
           console.log(err);
          console.log("Tarea gulp añadida a gulpfile")
     });
-    console.log("\nInstalando plugin para despliegue en iaas, espere por favor ...");
+    console.log("\n\n---------Instalando los plugins, espere por favor ...");
 
 };
 

@@ -1,7 +1,7 @@
 {
   "name": "gitbook-start-plugin-iaas-ull-es-noejaco2017",
-  "version": "0.0.10",
-  "description": "Despliegue en Heroku e Iaas",
+  "version": "0.0.16",
+  "description": "Despliegue plugin Iaas",
   "main": "linea-comando-iaas.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
