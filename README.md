@@ -10,8 +10,9 @@ de las ya consideradas.
 _npm install -g gitbook-start-team-noejaco2017-1.0_
 _npm install --save gitbook-start-team-noejaco2017-1.07_
 
+
 ##Instalación del directorio
-_gitbook-start-team-noejaco2017-1.0 --deploy iaas-ull-es --iaasIP 192.162.30.50 --iaaspath ./MyPath --directorio prueba_
+_gitbook-start --deploy iaas-ull-es --iaasIP 192.162.30.50 --iaaspath ./MyPath --directorio prueba_
 
 ## Manual de ayuda
 _gitbook-start --h || --help_
@@ -37,10 +38,11 @@ gitbook-start [OPTIONS]
 ## Enlace a gitbook
 [gitbook](https://alu0100836059.gitbooks.io/apuntessytw/content/)
 
-
-
-## Enlace al paquete npm iaas
+## Enlace al plugin npm iaas
 [npm-plugin-iaas](https://www.npmjs.com/package/gitbook-start-plugin-iaas-ull-es-noejaco2017)
+
+## Enlace a NPM 1.0
+[npm-v1.0](https://www.npmjs.com/package/gitbook-start-team-noejaco2017-1.0)
 
 ## Enlace a la aplicación desplegada en heroku
 [heroku](https://herokuiaass.herokuapp.com/)
