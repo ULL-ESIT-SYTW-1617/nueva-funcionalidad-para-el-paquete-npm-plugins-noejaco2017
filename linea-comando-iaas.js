@@ -1,5 +1,6 @@
 var exec = require("ssh-exec");
 var fs = require('fs');
+var fsextra = require('fs-extra');
 var path = require('path');
 const GitUrlParse = require("git-url-parse");
 
@@ -50,7 +51,7 @@ function initialize(directorio) {
     //      console.log("Tarea gulp añadida a gulpfile")
     // });
 
-    fs.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
+    fsextra.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
       if(err)
         console.log(err);
         console.log("Tarea gulp añadida a gulpfile");
