@@ -1,5 +1,5 @@
 var exec = require("ssh-exec");
-var fs = require('fs-extra');
+var fs = require('fs');
 var path = require('path');
 const GitUrlParse = require("git-url-parse");
 
@@ -17,38 +17,43 @@ function initialize(directorio) {
         '\n\n\tiaas.deploy(iaas_ip, iaas_path, url);'+//y pasamos los valores a la funcion deploy luego de hacer el initialize
         '\n});\n\n';
 
+        fs.appendFile('gulpfile.js', contenido, function(err) {
+        if (err)
+            console.error(err);
+            console.log("Añadiendo tarea gulp")
+    });
 
-    fs.existsSync(path.join(process.cwd(), 'node_modules','gitbook-start-team-noejaco2017','gulpfile.js')) ? console.log("Existe") : console.log("No existe");
-
-
-    //añadimos la tarea
+     fs.existsSync(path.join(process.cwd(), 'node_modules','gitbook-start-team-noejaco2017','gulpfile.js')) ? console.log("Existe") : console.log("No existe");
+    //
+    //
+    // //añadimos la tarea
     fs.writeFileSync(path.join(process.cwd(),'node_modules', 'gitbook-start-team-noejaco2017','gulpfile.js'), contenido,  {'flag':'a'},  function(err) {
         if (err) {
             return console.error(err);
         }
         console.log("Añadiendo tarea gulp")
     });
-
-
-    // fs.appendFile('gulpfile.js', contenido, function(err) {
-    //     if (err)
-    //         console.error(err);
-    // });
-
-
-
-    //copiamos gulpfile a nuestro directorio
-    // fs.copyFile(path.join(process.cwd(), 'node_modules','gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
-    //     if(err)
-    //       console.log(err);
-    //      console.log("Tarea gulp añadida a gulpfile")
-    // });
-
-    fs.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join('..', directorio , 'gulpfile.js'),function(err){
-      if(err)
-        console.log(err);
-        console.log("Tarea gulp añadida a gulpfile");
+    //
+    //
+    // // fs.appendFile('gulpfile.js', contenido, function(err) {
+    // //     if (err)
+    // //         console.error(err);
+    // // });
+    //
+    //
+    //
+    // //copiamos gulpfile a nuestro directorio
+    fs.copyFile(path.join(process.cwd(), 'node_modules','gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
+        if(err)
+          console.log(err);
+         console.log("Tarea gulp añadida a gulpfile")
     });
+
+    // fs.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join('..', directorio , 'gulpfile.js'),function(err){
+    //   if(err)
+    //     console.log(err);
+    //     console.log("Tarea gulp añadida a gulpfile");
+    // });
 
 
     console.log("\n\n---------Instalando los plugins, espere por favor ...");
