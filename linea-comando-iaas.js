@@ -44,7 +44,7 @@ function initialize(directorio) {
     //      console.log("Tarea gulp añadida a gulpfile")
     // });
 
-    fs.copy(path.join(__dirname,'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
+    fs.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join('..', directorio , 'gulpfile.js'),function(err){
       if(err)
         console.log(err);
         console.log("Tarea gulp añadida a gulpfile");
@@ -66,29 +66,15 @@ function deploy(ip, ruta, url) {
 
 
 
-    exec('cd '+ruta+';git clone '+url+'',{
-          user: 'usuario',
-          host: ip,
-          key: 'fs.readFileSync(`${process.env.HOME}/.ssh/id_rsa`)'
-
-      },function(err){
-       if(err){
-      	console.log('Haciendo pull del repositorio!');
-        exec('cd '+ruta+'/'+carpeta.name+'; git pull',{
-            user: 'usuario',
-            host: ip,
-            key: 'fs.readFileSync(`${process.env.HOME}/.ssh/id_rsa`)'
-          },function(err){
-            if(err)
-                console.log("Ha habido un error con el pull");
-            else
-                console.log("Actualizacion carpeta confirmada");
-            });
-        }
-        else {
-            console.log("Clonación del repositorio confirmada");
-        }
-    });
+    function puts(error, stdout, stderr) {
+      if(stdout){
+        console.log(stdout);
+      }
+      if(stderr){
+        console.log(stderr);
+      }
+    }
+    exec("ssh usuario@" + ip + " 'cd " + ruta + "; git pull'", puts);
 };
 
 module.exports = {
