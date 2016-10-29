@@ -51,7 +51,7 @@ function initialize(directorio) {
     //      console.log("Tarea gulp añadida a gulpfile")
     // });
 
-    fsextra.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
+    fsextra.copy(path.join(process.cwd(),'./node_modules/gitbook-start-team-noejaco2017','gulpfile.js'), path.join( directorio , 'gulpfile.js'),function(err){
       if(err)
         console.log(err);
         console.log("Tarea gulp añadida a gulpfile");
