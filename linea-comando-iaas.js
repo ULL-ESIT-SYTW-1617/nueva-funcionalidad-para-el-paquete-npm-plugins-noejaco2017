@@ -1,5 +1,5 @@
 var exec = require("ssh-exec");
-var fs = require('fs');
+var fs = require('fs-extra');
 var path = require('path');
 const GitUrlParse = require("git-url-parse");
 
