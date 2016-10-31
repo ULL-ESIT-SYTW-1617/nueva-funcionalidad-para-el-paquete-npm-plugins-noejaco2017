@@ -46,7 +46,7 @@ function initialize(directorio) {
     // //copiamos gulpfile a nuestro directorio
     console.log("VARIABLE CWD AQUIIIIIIIIIIII: "+process.cwd());
          var direct = process.cwd() + '/';
-           console.log("Despues de / : "+direct;
+           //console.log("Despues de / : "+ direct;
     // fs.copyFile(path.join(process.cwd(), 'node_modules','gitbook-start-team-noejaco2017','gulpfile.js'), path.join(process.cwd(), directorio , 'gulpfile.js'),function(err){
     //     if(err)
     //       console.log(err);
